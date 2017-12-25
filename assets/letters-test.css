@@ -1,0 +1,48 @@
+
+            #answer-container {
+                margin: 0 auto;
+                padding: 10px;
+            }
+
+			.wrapper {
+				background: #eee;
+				
+			}
+
+			body {
+				background: gray;
+				text-align: center;
+			}
+
+			.container>div {
+				background: #eee;
+				padding: 1em;
+			}
+
+			.container {
+
+				display: grid;
+				grid-template-columns: 100%;
+				grid-column-gap: 10px;
+
+			}
+
+			.container>div:nth-child(odd) {
+				background: #eee;
+			}
+
+			.btn {
+				display: inline-block;
+				background: gray;
+				color: black;
+				text-decoration: none;
+				padding: 0.5em 2em;
+				border: 1px solid white;
+				margin: .5em 0;
+
+			}
+
+			.btn:hover {
+				background: #333;
+				color: black;
+			}

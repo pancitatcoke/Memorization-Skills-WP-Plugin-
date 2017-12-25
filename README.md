@@ -1,2 +1,1 @@
-# Memorization-Skills-WP-Plugin-
-Memorization Skills
+# floating-bubble-text
