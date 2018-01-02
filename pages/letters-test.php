@@ -2,9 +2,7 @@
 <div class="wrapper">
 		<div class="container">
 			<div class="grid">
-				<p>When you click the start button, you will be presented with a series of letters and you will have 10 seconds to review them. After the time has elapsed you will be quizzed to see if you remember them. Do not worry about capitalization. It will take several tries to zero in on your limit.
-					
-						<br >Time limit: <b id="demo">10</b> seconds </p>
+						<h1><br >Time limit: <b id="demo">10</b>s</h1>
 			</div>
 		
             <button class="btn">Show Letters</button>

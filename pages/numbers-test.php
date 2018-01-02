@@ -1,9 +1,8 @@
- <div class="wrapper">
+
+<div class="wrapper">
 		<div class="container">
 			<div class="grid">
-				<p>When you click the start button, you will be presented with a series of numbers and you will have 10 seconds to review them. After the time has elapsed you will be quizzed to see if you remember them. Do not worry about capitalization. It will take several tries to zero in on your limit.
-					
-						<br >Time limit: <b id="demo">10</b> seconds </p>
+						<h1><br >Time limit: <b id="demo">10</b>s</p></h1>
 			</div>
 		
             <button class="btn">Show Numbers</button>
@@ -181,7 +180,7 @@
                         } else
                             jQuery('#alert').html('Wrong Answer').css({color:'red'}).show();
                            
-                        if (digit == 14) {
+                        if (digit >= 10) {
                             jQuery('#demo').html('20');
                             counter =19;
                         }
@@ -204,3 +203,31 @@
                 
                 
             </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

@@ -1,35 +1,4 @@
-
-                //  jQuery(function() {
-
-                //     jQuery('.btn').on('click', function() {
-                //         jQuery('#answer').html(Math.floor((Math.random() * 900) + 100));
-                //       }); 
-                //   });
-
-
-                // NUMBERS TEST-------------------------------------------------------
-                // jQuery('.btn').click(function() {
-                //     jQuery('#answer').val(
-                //         gen_num(jQuery(this).val().length)
-                //     );
-                // });
-
-                // var digit = 0;
-                // function gen_num(len = 0) {
-                //     digit += 1;
-                //     var nums = '1234567890';
-
-                //     var ret = '';
-                //     for (var i = 0; i < digit; i++) {
-                //         rndm = Math.floor((Math.random() * 10));
-                //         ret = ret + nums[rndm];
-                //         // console.log(nums, rndm, ret);
-                //     }
-                //     console.log(nums, rndm, ret);
-                //     return ret;
-                // }
-
-                function lettersOnly(input) {
+             function lettersOnly(input) {
                     var regex = /[^a-z]/gi;
                     input.value = input.value.replace(regex, "");
 

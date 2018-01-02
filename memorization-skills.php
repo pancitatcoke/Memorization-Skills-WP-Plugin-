@@ -27,7 +27,6 @@ class Memorization_Skills {
 	function wp_enqueue_links_scripts() {
 		wp_enqueue_style( 'letters-test', plugins_url( '/assets/letters-test.css', __FILE__  ) );
 		wp_enqueue_style( 'font-awesome', plugins_url( '/assets/font-awesome/css/font-awesome.min.css', __FILE__  ) );
-		wp_enqueue_script( 'letters-test-script', plugins_url('/assets/letters-test.js', __FILE__ ), array(), '1.0.0', true );
 	}
 
 	function mem_skills_shortcode( $atts ) {
@@ -38,7 +37,7 @@ class Memorization_Skills {
 		if ($type == 'letters') 
 			$this->render_letters_test();
 
-		elseif ( $type == 'numbers' )
+		elseif ($type == 'numbers')
 			$this->render_numbers_test();
 		
 
@@ -47,7 +46,8 @@ class Memorization_Skills {
 	
 	}	
 
-	function render_letters_test() {
+		function render_letters_test() {
+		wp_enqueue_script( 'letters-test-script', plugins_url('/assets/letters-test.js', __FILE__ ), array(), '1.0.0', true );
 		include( plugin_dir_path( __FILE__ ) . 'pages/letters-test.php' );
 	}
 
