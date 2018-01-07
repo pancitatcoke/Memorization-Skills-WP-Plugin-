@@ -1,7 +1,7 @@
 
 <div class="wrapper">
 
-	<div id="container">
+	<div id="words-container">
 		
 		<!-- insert content here -->
 
@@ -14,7 +14,7 @@
 
 
 <script>
-
+	
 	jQuery('#gen_words').click(function() {
 		var how_many = jQuery('#how_many').val();
 

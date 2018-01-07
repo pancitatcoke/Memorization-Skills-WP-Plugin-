@@ -1,109 +1,109 @@
-
 <div class="wrapper">
-	<div class="container">
-		<div class="grid">
-			<h1><br >Time limit: <b id="demo">10</b>s</p></h1>
-		</div>
-	
-        <button class="btn">Show Numbers</button>
+<div class="container">
+    <div class="grid">
+                <h1 id="text"><br >Time limit: <b id="demo">10</b>s</h1>
+                <h4 id="score-text">Your score is</h1> <h3 id="score"></h3>
+    </div>
 
-        <div id="">
-              <input id="preview" disabled>
-        </div>
-        <div id="answer-container" style="display: none;">
-              <input id="answer" style="text-transform: uppercase" onkeyup="numbersOnly(this)">
-                <button id="btn2">Submit</button>
-                <button id="btn3">Give-up</button>
-                <br>
-                <div id="alert">
-                </div>
-        </div>
-	</div>
+    <button class="btn">Show Letters</button>
+
+    <div id"preview-container">
+          <input id="preview" disabled>
+    </div>
+    
+    <div id="answer-container" style="display: none;">
+          <input id="answer" style="text-transform: uppercase" onkeyup="lettersOnly(this)">
+            <button id="btn2">Submit</button>
+            <button id="btn3">Give-up</button>
+            <br>
+            <div id="alert"> 
+            </div>
+    </div>
+</div>
 </div>
 
-		<style>
+<style>
 
-            #answer-container {
-                margin: 0 auto;
-                padding: 10px;
-            }
+#answer-container {
+    margin: 0 auto;
+    padding: 10px;
+}
 
-			.wrapper {
-				background: #eee;
-				
-			}
+.wrapper {
+    background: #dfc15e;
+    display: grid;
+    
+}
 
-			body {
-				background: gray;
-				text-align: center;
-			}
+.grid {
+    background: #dfc15e !important;
+}
 
-			.container>div {
-				background: #eee;
-				padding: 1em;
-			}
+body {
+    text-align: center;
+}
 
-			.container {
+.container>div {
+    background: #dfc15e;
+    padding: 1em;
+}
 
-				display: grid;
-				grid-template-columns: 100%;
-				grid-column-gap: 10px;
+#text{
+    padding: 0px 0px 120px 0px;
+}
+.container {
+    display: grid;
+    grid-template-columns: 100%;
+    grid-column-gap: 10px;
 
-			}
+}
 
-			.container>div:nth-child(odd) {
-				background: #eee;
-			}
+h1 {
+    font-weight: bold;
+    color: #f5f5f5;
+    font-size: 70px;
+  }
 
-			.btn {
-				display: inline-block;
-				background: gray;
-				color: black;
-				text-decoration: none;
-				padding: 0.5em 2em;
-				border: 1px solid white;
-				margin: .5em 0;
+.container>div:nth-child(odd) {
+    background: #dfc15e;
+}
 
-			}
+.btn, #btn2, #btn3 {
+    width: 300px;
+    background: #3a3a3a;
+    color: #f5f5f5;
+    text-decoration: none;
+    padding: 12px;
+    border: 1px solid white;
+    margin: 0 auto;
+}
 
-			.btn:hover {
-				background: #333;
-				color: black;
-			}
+#btn2, #btn3 {
+    width: 150px; 
+    margin: 0 auto;
+}
+
+.btn, #btn2, #btn3 {border-radius: 12px;}
+
+.btn:hover {
+    border: 1px solid white;
+    background: #dfc15e;
+    color: white;
+}
+
+#btn2:hover {
+    background: #dfc15e;
+    color: white;
+}
+
+#btn3:hover {
+    background: #dfc15e;
+    color: white;
+}
 		</style>
 
 
             <script>
-                //  jQuery(function() {
-
-                //     jQuery('.btn').on('click', function() {
-                //         jQuery('#answer').html(Math.floor((Math.random() * 900) + 100));
-                //       }); 
-                //   });
-
-
-                // NUMBERS TEST-------------------------------------------------------
-                // jQuery('.btn').click(function() {
-                //     jQuery('#answer').val(
-                //         gen_num(jQuery(this).val().length)
-                //     );
-                // });
-
-                // var digit = 0;
-                // function gen_num(len = 0) {
-                //     digit += 1;
-                //     var nums = '1234567890';
-
-                //     var ret = '';
-                //     for (var i = 0; i < digit; i++) {
-                //         rndm = Math.floor((Math.random() * 10));
-                //         ret = ret + nums[rndm];
-                //         // console.log(nums, rndm, ret);
-                //     }
-                //     console.log(nums, rndm, ret);
-                //     return ret;
-                // }
-
                 function numbersOnly(input) {
                     var regex = /[^0-9]/g;
                     input.value = input.value.replace(regex, "");
@@ -118,6 +118,8 @@
 
                 // NUMBERS TEST----------------------------------------------------
                 jQuery('.btn').click(function() {
+                    jQuery('#score-text').hide();
+                    jQuery('#score').hide();
                     jQuery('#alert').hide();
                      jQuery(this).hide();
                      myVar = setInterval(function(){ myTimer() }, 1000);
@@ -127,6 +129,7 @@
                 });
 
                 var digit = 3;
+                var fd = digit + 1;
                 function gen_num(len = 0) {
                     digit += 1;
                     var nums = '1234567890';
@@ -183,6 +186,11 @@
 
 
                     jQuery('#btn3').click(function() {
+                        var score = jQuery('#preview').val().length;
+                        if (score == fd)
+                            alert("You fucking shit!");
+                        jQuery('#score').html(score).show();
+                        jQuery('#score-text').show();
                         jQuery('#answer-container').fadeToggle();
                         jQuery('#preview').fadeToggle();
                         jQuery('.btn').fadeToggle();

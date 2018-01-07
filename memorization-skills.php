@@ -77,20 +77,31 @@ class Memorization_Skills {
 
 		elseif ( $type == 'words' )
 		$this->render_words_test();
+
+		elseif ($type == 'cards')
+			$this->render_cards_game();
 	
 	}	
 
 	function render_letters_test() {
 		wp_enqueue_script( 'letters-test-script', plugins_url('/assets/letters-test.js', __FILE__ ), array(), '1.0.0', true );
+		// ob_clean();
 		include( plugin_dir_path( __FILE__ ) . 'pages/letters-test.php' );
+		// return ob_get_clean();
 	}
 
 	function render_numbers_test() {
+		// ob_clean();
 		include( plugin_dir_path( __FILE__ ) . 'pages/numbers-test.php' );
+		// return ob_get_clean();
 	}
 
 	function render_words_test() {
 		include( plugin_dir_path( __FILE__ ) . 'pages/words-test.php' );
+	}
+
+	function render_cards_game() {
+		include( plugin_dir_path( __FILE__ ) . 'pages/cards.php' );
 	}
 
 	function gen_random_words( $data ) {

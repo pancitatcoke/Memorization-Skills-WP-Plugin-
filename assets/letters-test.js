@@ -12,6 +12,8 @@
 
                 // LETTERS TEST----------------------------------------------------
                 jQuery('.btn').click(function() {
+                    jQuery('#score-text').hide();
+                    jQuery('#score').hide();
                     jQuery('#alert').hide();
                     jQuery(this).hide();
                     myVar = setInterval(function(){ myTimer() }, 1000);
@@ -21,6 +23,7 @@
                 });
 
                 var digit = 3;
+                var fd = digit + 1;
                 function gen_num(len = 0) {
                     digit += 1;
                     var nums = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
@@ -65,7 +68,7 @@
                         } else
                         jQuery('#alert').html('Wrong Answer').css({color:'red'}).show();
 
-                        if (digit == 14) {
+                        if (digit >= 10) {
                         jQuery('#demo').html('20');
                         counter =19;
                         }
@@ -73,6 +76,11 @@
 
 
                     jQuery('#btn3').click(function() {
+                        var score = jQuery('#preview').val().length;
+                        if (score == fd)
+                            alert("You fucking shit!");
+                        jQuery('#score').html(score).show();
+                        jQuery('#score-text').show();
                         jQuery('#answer-container').fadeToggle();
                         jQuery('#preview').fadeToggle();
                         jQuery('.btn').fadeToggle();

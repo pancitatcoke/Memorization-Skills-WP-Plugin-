@@ -2,12 +2,13 @@
 <div class="wrapper">
 	<div class="container">
 		<div class="grid">
-					<h1><br >Time limit: <b id="demo">10</b>s</h1>
+                    <h1 id="text"><br >Time limit: <b id="demo">10</b>s</h1>
+                    <h4 id="score-text">Your score is</h1> <h3 id="score"></h3>
 		</div>
 	
         <button class="btn">Show Letters</button>
 
-        <div id="">
+        <div id"preview-container">
               <input id="preview" disabled>
         </div>
         
