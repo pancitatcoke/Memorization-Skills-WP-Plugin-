@@ -13,8 +13,8 @@
     	}
 
 		.flip-container {
-			background: #fff;
-			border: 1px solid #000;
+			background: #f5f5f5;
+			border: 1px solid white;
 			margin: 5px;
 		}
 
@@ -27,13 +27,13 @@
 			}
 
 		.flip-container, .front, .back {
-			width: 50px;
-			height: 50px;
+			width: 100px;
+			height: 100px;
 		}
 
 		/* flip speed goes here */
 		.flipper {
-			transition: 0.6s;
+			transition: 0.7s;
 			transform-style: preserve-3d;
 
 			position: relative;
@@ -50,6 +50,7 @@
 
 		/* front pane, placed above back */
 		.front {
+			background: #dfc15e;
 			z-index: 2;
 			/* for firefox 31 */
 			transform: rotateY(0deg);
@@ -57,12 +58,14 @@
 
 		/* back, initially hidden pane */
 		.back {
+			font-size: 50px;
+			color: #dfc15e;
 			transform: rotateY(180deg);
 		}
 
 		#memory-board {
 			padding: 20px;
-			background: #999;
+			background: #3a3a3a;
 		}
 
     </style>
@@ -81,7 +84,7 @@
 	var choices = [];
 	var tiles = [];
 
-	var board_dimension = [2, 2];
+	var board_dimension = [6, 6];
 
 	init_board(board_dimension);
 	
@@ -154,7 +157,7 @@
 			}
 			setTimeout(function() {
 				check_completeness();
-			}, 500);
+			}, 400);
 		});
 	}
 
