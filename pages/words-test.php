@@ -12,7 +12,7 @@
 	<input type="text" id="answers" style="visibility:hidden">
 	<button id="submit">Submit</button>
 	
-	<input id="answer-container" onkeyup="lettersOnly(this)">
+	<input id="answer-container">
 
 </div>
 
@@ -21,20 +21,24 @@
 	var myVar;
 	var temp;
 
+
+
 	jQuery('#answer-container').hide();
 	jQuery('#submit').hide();
 
 	jQuery('#gen_words').click(function() {
+		jQuery('#words-container').show();
 		jQuery('#gen_words').hide();
 		myVar = setInterval(function(){ myTimer() }, 1000);
 		var how_many = jQuery('#how_many').val();
 
 		// This will get random words from the database~
 		jQuery.post('<?= get_site_url() ?>/wp-json/mem-skills/v1/random_words/', { 'how_many': how_many + 1}, function(data) {
-
+			
 			// variable 'data' is an object type variable, this is where the random words stored
 			console.log(data);
 			var el = '';
+			var temp = data;
 			jQuery.each(data, function( key, value ) {
 				// variable 'key' is the index of an array inside an the object 'data' inside the current loop
 				// variable 'value' is the value inside the current loop
@@ -45,24 +49,21 @@
 				console.log(value.words); //words is from the database
 			});
 			jQuery('#words-container').html(el);
+			
+			
+	
 		});
-
-		
-
 
 	});
 
-	temp = el;
+	function check_answer(answer) {
+		for (var i = 0; i < digit; i++) {
 
-	var temp = null;
-		$.get(url, function(d){
-   		if(temp == null){
-     		temp = el;
-   		}
-   		if(temp.something > el.something){
-      		//do something else
-   		}
-		});	
+			if (answer == temp[i])
+				return true;
+
+                }
+	} 
 	
 	var counter= 9;
 
@@ -72,36 +73,28 @@
             counter -= 1;
                         
             if (counter == -1)
-                myStopFunction();
+				myStopFunction();
+				
+			if (counter <= 4)
+				jQuery("#demo").css("color", "red");
         }
 
         function myStopFunction() {
+			
 			jQuery('#answer-container').show();
 			jQuery('#submit').show();
             clearInterval(myVar);
 			jQuery('#words-container').hide();
 			jQuery('#answers').css(style="visibility:visible");
+			
         }
 
 		jQuery('#submit').click(function() {
-            if ( temp == jQuery('#answer-container').val()) {
+            if (check_answer(jQuery('#words-container').val())) {
 				alert("Nice"); 
 
 			} else 
-				alert("not nice")
-            //     jQuery('#alert').html('Correct Answer').css({color:'green'}).show();
-            //     jQuery('#answer-container').fadeToggle(2000);
-            //     jQuery('#preview').fadeToggle(2000);
-            //     jQuery('.btn').fadeToggle(2000);
-            //     jQuery('#demo').html('10');
-            //     counter = 9;
-            // } else
-            //     jQuery('#alert').html('Wrong Answer').css({color:'red'}).show();
-                           
-            // if (digit >= 10) {
-            //     jQuery('#demo').html('20');
-            //     counter =19;
-            // }
+				alert("not nice");
 
         });
 

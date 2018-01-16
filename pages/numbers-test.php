@@ -2,10 +2,10 @@
 <div class="container">
     <div class="grid">
                 <h1 id="text"><br >Time limit: <b id="demo">10</b>s</h1>
-                <h4 id="score-text">Your score is</h1> <h3 id="score"></h3>
+                <h4 id="score-text">The numbers you have remembered: </h1> <h3 id="score"></h3>
     </div>
 
-    <button class="btn">Show Letters</button>
+    <button class="btn">Show Numbers</button>
 
     <div id"preview-container">
           <input id="preview" disabled>
@@ -24,6 +24,7 @@
 
 <style>
 
+
 #answer-container {
     margin: 0 auto;
     padding: 10px;
@@ -33,6 +34,10 @@
     background: #dfc15e;
     display: grid;
     
+}
+
+#score-text {
+    display: none;
 }
 
 .grid {
@@ -161,7 +166,7 @@ h1 {
                     function myStopFunction() {
                         clearInterval(myVar);
                         jQuery('#preview').hide();
-                        jQuery('#answer-container').fadeToggle();
+                        jQuery('#answer-container').toggle();
                         jQuery('#answer').val('');
                     }
 
@@ -169,31 +174,36 @@ h1 {
                     jQuery('#btn2').click(function() {
                         if (temp.toUpperCase() == jQuery('#answer').val().toUpperCase()) {
                             jQuery('#alert').html('Correct Answer').css({color:'green'}).show();
-                            jQuery('#answer-container').fadeToggle(2000);
-                            jQuery('#preview').fadeToggle(2000);
-                            jQuery('.btn').fadeToggle(2000);
+                            jQuery('#answer-container').toggle();
+                            jQuery('#preview').toggle();
+                            jQuery('.btn').toggle();
                             jQuery('#demo').html('10');
                             counter = 9;
                         } else
-                            jQuery('#alert').html('Wrong Answer').css({color:'red'}).show();
-                           
-                        if (digit >= 10) {
-                            jQuery('#demo').html('20');
-                            counter =19;
+                        jQuery('#alert').html('Wrong Answer').css({color:'red'}).show();
+
+                        if (digit >= 4) {
+                            jQuery('.btn').html('Next Level');
                         }
 
+                        if (digit >= 10) {
+                        jQuery('#demo').html('20');
+                        counter =19;
+                        }
                     });
 
 
                     jQuery('#btn3').click(function() {
                         var score = jQuery('#preview').val().length;
+
+                        
                         if (score == fd)
-                            alert("You fucking shit!");
+                            alert("You didn't even try!");
                         jQuery('#score').html(score).show();
                         jQuery('#score-text').show();
-                        jQuery('#answer-container').fadeToggle();
-                        jQuery('#preview').fadeToggle();
-                        jQuery('.btn').fadeToggle();
+                        jQuery('#answer-container').toggle();
+                        jQuery('#preview').toggle();
+                        jQuery('.btn').html('Show Letters').toggle();
                         jQuery('#demo').html('10');
                         counter = 9;
                         digit = 3;
