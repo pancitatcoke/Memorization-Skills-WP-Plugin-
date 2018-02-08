@@ -203,7 +203,7 @@ h1 {
                         jQuery('#score-text').show();
                         jQuery('#answer-container').toggle();
                         jQuery('#preview').toggle();
-                        jQuery('.btn').html('Show Letters').toggle();
+                        jQuery('.btn').html('Show Numbers').toggle();
                         jQuery('#demo').html('10');
                         counter = 9;
                         digit = 3;
